@@ -33,7 +33,7 @@ function transformYearKeys(dataArray) {
 }
 app.get("/getIndicadores", async (req, res) => {
   const respuesta = await indicador.getIndicador("");
-  console.log(respuesta[2]);
+  console.log(respuesta[0]);
   res.status(200).json(respuesta);
 });
 var upload = multer({ dest: "uploads/" });
@@ -63,9 +63,9 @@ app.post("/read", upload.single("file"), async (req, res) => {
       //EJEMPLO: SI VAS A LEER EL ARCHIVO DONDE ESTAN LOS DATOS DEL PIB, ENTONCES SOLAMENTE DESCOMENTAR EL CODIGO QUE DICE (PIB), LO MISMO PARA LOS DEMAS INDICADORES. 
       //RUTA DE ARCHIVOS CON LOS DATOS : src/data
       //------------------------------PIB---------------------------------------
-      // console.log("respuesta PIB",{datos: excelData.Hoja1});
-      // const respuesta = await indicador.Guardar({datos: excelData.Hoja1});
-      // console.log("soy res PIB",respuesta);
+      console.log("respuesta PIB",{datos: excelData.Hoja1});
+      const respuesta = await indicador.Guardar({datos: excelData.Hoja1});
+      console.log("soy res PIB",respuesta);
       //------------------------------------------------------------------------
       //------------------------------INFLACION---------------------------------
       // console.log("respuesta Inflacion",{datos: excelData.Sheet1});
@@ -73,9 +73,9 @@ app.post("/read", upload.single("file"), async (req, res) => {
       // console.log("soy res INFLA",respuesta);
       //------------------------------------------------------------------------
       //------------------------------DESEMPLEO---------------------------------
-      // console.log("respuesta Desempleo", { datos: excelData.Sheet1 });
-      // const respuesta = await indicador.Guardar({ datos: excelData.Sheet1 });
-      // console.log("soy res DESEMPLEO", respuesta);
+      //console.log("respuesta Desempleo", { datos: excelData.Sheet1 });
+      //const respuesta = await indicador.Guardar({ datos: excelData.Sheet1 });
+      //console.log("soy res DESEMPLEO", respuesta);
       //------------------------------------------------------------------------
       //------------------------------DEUDA-------------------------------------
       // console.log("respuesta Deuda", { datos: excelData.Sheet1 });
