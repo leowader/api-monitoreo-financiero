@@ -15,6 +15,7 @@ const app = express();
 app.use(cors());
 // origin:"http://localhost:3000",
 // credentials:true
+app.use(express.json());
 const port = 4000;
 function cleanYearNames(data) {
   const cleanedData = data.map((row) => {
@@ -29,8 +30,18 @@ function cleanYearNames(data) {
 }
 app.get("/getIndicadores", async (req, res) => {
   const respuesta = await indicador.getIndicador("");
-  console.log(respuesta[3].datos[0]);
+  // console.log(respuesta[3].datos[0]);
   res.status(200).json(respuesta);
+});
+app.post("/prediccion", async (req, res) => {
+  const { datos } = req.body;
+  const predi = {
+    datos: datos,
+  };
+  console.log("vengo del cliente", predi);
+  const respuesta = await indicador.Guardar(predi);
+  console.log(respuesta);
+  res.status(200).send({ message: "se guardo" });
 });
 var upload = multer({ dest: "uploads/" });
 app.post("/read", upload.single("file"), async (req, res) => {

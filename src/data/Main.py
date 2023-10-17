@@ -6,7 +6,7 @@ def CargaDeDatoPIB():
     df = pd.read_excel(ruta)
     primera_fila = df.iloc[0,:]
     print(primera_fila)
-#CargaDeDatoPIB(); 
+CargaDeDatoPIB(); 
 #Inflación     
 def CargaDatosInflacion():
     ruta = 'INFLACION.xlsx'
