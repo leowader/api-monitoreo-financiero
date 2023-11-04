@@ -7,7 +7,7 @@ data = {
   "timestamp": 1698783123,
   "source": "USD",
   "quotes": {
-    "USDEUR": 0.944867,
+    "USDEUR": 0.93297,
     "USDGBP": 0.822905,
     "USDCAD": 1.386825,
     "USDPLN": 4.21065

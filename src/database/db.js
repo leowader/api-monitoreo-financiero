@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/monitoreo', {
+const dotenv=require("dotenv")
+dotenv.config()
+
+mongoose.connect(process.env.BD_CONEXION, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(()=>{
