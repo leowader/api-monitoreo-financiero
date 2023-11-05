@@ -1,9 +1,11 @@
 from fastapi import FastAPI
-
+from src.controller.Dolar import Predicciones, Clear, GetDatos
 
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/predicciones")
 def read_root():
-    return {"Hello": "World"}
+    data = GetDatos()
+    df = Clear(data)
+    return Predicciones(df)
