@@ -11,12 +11,14 @@ const express = require("express");
 const multer = require("multer");
 const excelToJson = require("convert-excel-to-json");
 const fs = require("fs-extra");
+const dotenv=require("dotenv")
 const app = express();
+dotenv.config()
 app.use(cors());
 // origin:"http://localhost:3000",
 // credentials:true
 app.use(express.json());
-const port = 4000;
+const port = process.env.PORT;
 function cleanYearNames(data) {
   const cleanedData = data.map((row) => {
     const cleanedRow = {};
